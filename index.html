@@ -379,6 +379,59 @@ svg { display: block; max-width: 100%; height: auto; }
 .s-prev { background: #8fb2ff; }
 .s-crisis { background: var(--coral); }
 
+
+/* 08 cost v2 */
+.cost-a { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.3fr); gap: 48px; align-items: start; }
+@media (max-width: 980px) { .cost-a { grid-template-columns: minmax(0, 1fr); } }
+.receipt { position: relative; background: var(--paper); color: var(--ink); padding: 26px 26px 22px; transform: rotate(-1.2deg); box-shadow: 0 40px 70px -30px rgba(0,0,0,.8);
+  -webkit-mask: radial-gradient(circle 7px at 0 14px, transparent 98%, #000) 0 0 / 100% 28px repeat-y, radial-gradient(circle 7px at 100% 14px, transparent 98%, #000) 0 0 / 100% 28px repeat-y;
+  -webkit-mask-composite: source-in; mask-composite: intersect; font-family: var(--mono); font-size: .82rem; }
+.receipt .tt { display: flex; justify-content: space-between; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .72rem; }
+.receipt hr { border: 0; border-top: 1.5px dashed rgba(12,13,17,.35); margin: 12px 0; }
+.receipt .ln { display: flex; justify-content: space-between; gap: 14px; padding: 5px 0; align-items: baseline; }
+.receipt .ln span b { font-weight: 600; }
+.receipt .ln small { display: block; font-size: .66rem; color: rgba(12,13,17,.58); margin-top: 1px; }
+.receipt .ln > b { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.receipt .ln.big > b { color: var(--blue-2); }
+.receipt .ln.tot { font-weight: 700; font-size: 1rem; }
+.receipt .ln.tot > b { font: 900 1.9rem/1 var(--display); }
+.receipt .foot { font-size: .6rem; letter-spacing: .06em; color: rgba(12,13,17,.6); display: flex; justify-content: space-between; align-items: end; gap: 10px; }
+.cost-why { display: grid; gap: 16px; }
+.cost-why p { color: var(--muted); max-width: 60ch; }
+.cost-why p b { color: var(--paper); }
+.curve { min-width: 620px; }
+.curve .gr { stroke: rgba(236,230,218,.12); stroke-width: 1; }
+.curve .ax { fill: rgba(236,230,218,.55); font: 500 11px var(--mono); }
+.curve .cmp { stroke: var(--paper); stroke-width: 1.5; stroke-dasharray: 5 5; opacity: .6; }
+.curve polyline { fill: none; stroke-width: 4; stroke-linecap: round; }
+.curve .l-cold { stroke: var(--coral); } .curve .l-mix { stroke: var(--blue); } .curve .l-warm { stroke: var(--mint); }
+.curve .pt-cold { fill: var(--coral); } .curve .pt-mix { fill: var(--blue); }
+.curve .lab { font: 700 13px var(--mono); } .curve .lab.c { fill: var(--coral); } .curve .lab.b { fill: var(--blue); } .curve .lab.w { fill: var(--mint); }
+.mbars { display: grid; gap: 14px; }
+.mb { display: grid; grid-template-columns: 210px minmax(0, 1fr) 110px; gap: 16px; align-items: center; }
+@media (max-width: 640px) { .mb { grid-template-columns: minmax(0, 1fr) 96px; } .mb .track2 { grid-column: 1 / -1; grid-row: 2; } }
+.mb .nm { font: 800 1.3rem/1 var(--display); text-transform: uppercase; }
+.mb .nm small { display: block; font: 500 .6rem var(--mono); letter-spacing: .1em; color: var(--muted); margin-top: 4px; text-transform: none; }
+.track2 { position: relative; height: 30px; background: var(--ink-3); border-radius: 6px; }
+.track2 .f { position: absolute; top: 0; bottom: 0; border-radius: 6px; }
+.f-rep { background: var(--blue); } .f-oth { background: var(--mint); } .f-doc { background: var(--paper-3); } .f-doc2 { background: repeating-linear-gradient(135deg, var(--paper-3) 0 6px, transparent 6px 10px); }
+.mb .amt { text-align: right; font: 700 1.05rem var(--mono); font-variant-numeric: tabular-nums; }
+.cost-b { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 48px; }
+@media (max-width: 900px) { .cost-b { grid-template-columns: minmax(0, 1fr); } }
+.fixed { display: grid; gap: 0; border-top: 1px solid var(--hair); }
+.fixed div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; padding: 12px 0; border-bottom: 1px solid var(--hair); }
+.fixed span { font-size: 1rem; }
+.fixed b { font: 800 1.4rem/1 var(--display); text-align: right; font-variant-numeric: tabular-nums; }
+.fixed small { grid-column: 1 / -1; font: 500 .66rem var(--mono); color: var(--muted); letter-spacing: .04em; }
+.levers { display: grid; gap: 12px; }
+.levers div { border: 1px solid var(--hair); border-radius: 14px; padding: 16px 18px; display: grid; gap: 6px; }
+.levers b { font: 800 1.35rem/1 var(--display); text-transform: uppercase; color: var(--blue); }
+.levers span { color: var(--muted); font-size: .95rem; }
+.realbox { border: 2px dashed var(--blue); border-radius: 16px; padding: 20px 22px; display: grid; gap: 10px; }
+.realbox b { font: 900 1.8rem/1 var(--display); text-transform: uppercase; }
+.realbox span { color: var(--muted); max-width: 75ch; }
+.realbox code { font: 600 .85rem var(--mono); background: var(--ink-3); padding: 10px 12px; border-radius: 8px; overflow-wrap: anywhere; color: var(--paper); }
+
 /* 09 decisions */
 .ballots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
 @media (max-width: 760px) { .ballots { grid-template-columns: minmax(0, 1fr); } }
@@ -425,12 +478,12 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
 <header class="hero">
   <div class="wrap">
     <div class="file"><span>Dassie · team walkthrough · 25.11.2026 · 18:00 Paris · 15 min</span><span class="rule"></span><span>code read · main@7c10b557</span></div>
-    <h1 class="h">Not a graph.<br><span class="alt">A notebook.</span></h1>
+    <h1 class="h">Dassie's<br><span class="alt">knowledge graph</span></h1>
     <div class="hero-grid">
       <div>
-        <p class="lede" style="margin-top:0">What we call the <b>knowledge graph</b> is one private notebook per person, plus a picker that chooses which pages Claude reads for each message.</p>
+        <p class="lede" style="margin-top:0">Everything Dassie knows about you lives in <b>your own notebook</b>. For every message, Dassie opens it at the right pages, so the answer fits you.</p>
         <div class="findings" style="margin-top:36px">
-          <div class="finding"><span class="tagx t-fact">Fact</span><p>Facts are kept in a flat list. Nothing links one fact to another.</p></div>
+          <div class="finding"><span class="tagx t-fact">Today</span><p>Facts sit on pages: people, routines, goals. Next step: links between them.</p></div>
           <div class="finding"><span class="tagx t-fact">Rule</span><p>Everyone who accepts the terms gets memory. The health box only covers health details.</p></div>
           <div class="finding"><span class="tagx t-fact">Night</span><p>Every night Dassie learns short lessons from all chats and uses them the next day.</p></div>
           <div class="finding"><span class="tagx t-good">Works</span><p>Memory follows a person across iMessage and WhatsApp.</p></div>
@@ -556,11 +609,11 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
 <section class="band paper" id="f3">
   <div class="wrap">
     <div class="file"><span class="no">03</span><span>the_notebook</span><span class="rule"></span><span class="who">4–8 min · the core idea</span></div>
-    <h2 class="h">Pages,<br><span class="alt">not links</span></h2>
-    <p class="lede">A graph would let Dassie walk from Lea to the wedding to Sam. Dassie can't. It keeps <b>one notebook per person</b>: up to 600 facts in sections.</p>
+    <h2 class="h">Today: pages.<br><span class="alt">Next: links.</span></h2>
+    <p class="lede">Today the knowledge graph is <b>one notebook per person</b>, with up to 600 facts on pages. The next step is linking them, so Dassie can walk from Lea to the wedding to Sam.</p>
     <div class="fig nb-grid">
       <div class="imagined">
-        <div class="cap" style="margin:0">What "graph" makes people imagine</div>
+        <div class="cap" style="margin:0">Next step: facts linked to each other</div>
         <svg viewBox="0 0 360 250" aria-hidden="true">
           <line class="g-e" x1="80" y1="70" x2="200" y2="55"/><line class="g-e" x1="200" y1="55" x2="300" y2="130"/>
           <line class="g-e" x1="80" y1="70" x2="120" y2="190"/><line class="g-e" x1="120" y1="190" x2="260" y2="215"/><line class="g-e" x1="200" y1="55" x2="260" y2="215"/>
@@ -571,7 +624,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
           <circle class="g-n" cx="120" cy="190" r="32"/><text class="g-t" x="120" y="195" text-anchor="middle">Utrecht</text>
           <circle class="g-n" cx="260" cy="215" r="32"/><text class="g-t" x="260" y="220" text-anchor="middle">Wedding</text>
         </svg>
-        <span class="stamp big">Not built</span>
+        <span class="stamp big" style="color:var(--blue-2);border-color:var(--blue-2)">Next step</span>
       </div>
       <div class="book" aria-label="The notebook">
         <div class="bs">person_models · one row · one JSON</div>
@@ -834,46 +887,99 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
 <section class="band" id="f8">
   <div class="wrap">
     <div class="file"><span class="no">08</span><span>cost</span><span class="rule"></span><span class="who">11–15 min · both</span></div>
-    <h2 class="h">Six calls<br><span class="alt">per message</span></h2>
-    <div class="fig">
-      <div class="pipe3">
-        <div class="ph"><span class="phk">Before the reply · in parallel</span>
-          <span class="call"><i style="background:var(--mint)"></i>Safety check <span class="n">Haiku</span></span>
-          <span class="call"><i style="background:var(--mint)"></i>Feedback check <span class="n">Haiku</span></span>
-          <span class="call"><i style="background:var(--amber)"></i>Embedding <span class="n">OpenAI</span></span>
-        </div>
-        <div class="ph mid"><span class="phk">The reply</span>
-          <span class="call big"><i style="background:var(--blue)"></i>Reply <span class="n">Sonnet</span></span>
-          <span class="phn">the only call the person waits for</span>
-        </div>
-        <div class="ph"><span class="phk">After the reply · nobody waits</span>
-          <span class="call"><i style="background:var(--mint)"></i>Turn read <span class="n">Haiku</span></span>
-          <span class="call"><i style="background:var(--blue)"></i>Notebook update <span class="n">Sonnet</span></span>
+    <h2 class="h">One message,<br><span class="alt">priced</span></h2>
+    <p class="lede">Every number below comes from the list prices in the code and the token sizes the code sets or the docs measured. Where a number is an assumption, it says so. The real bill comes from the recorded spend (last box).</p>
+
+    <div class="fig cost-a">
+      <div class="receipt" aria-label="What one message costs on a person's first day">
+        <div class="tt"><span>One message · day 1</span><span>USD</span></div>
+        <hr>
+        <div class="ln"><span><b>Safety + feedback checks</b><small>Haiku · 1,130 in / 978 out · derived</small></span><b>0.0006</b></div>
+        <div class="ln"><span><b>Embedding</b><small>OpenAI · ~30 tokens</small></span><b>&lt;0.0001</b></div>
+        <div class="ln big"><span><b>Reply</b><small>Sonnet · 25,000-token prompt · 800 out · 1 in 3 cold</small></span><b>0.0315</b></div>
+        <div class="ln"><span><b>Turn read</b><small>Haiku · 3,670 in / 822 out · measured</small></span><b>0.0008</b></div>
+        <div class="ln big"><span><b>Notebook update</b><small>Sonnet · ~11,000 in / ~1,500 out · estimate · cap 0.18</small></span><b>0.0370</b></div>
+        <div class="ln"><span><b>Voice</b><small>1 in 10 messages · 0.0295 each</small></span><b>0.0030</b></div>
+        <hr>
+        <div class="ln tot"><span>Total per message</span><b>0.073</b></div>
+        <div class="ln"><span>Same person on day 30</span><b>0.203</b></div>
+        <hr>
+        <div class="foot"><span>Prices: Sonnet $2 in · $10 out · $2.50 cache write · $0.10 cache read<br>Haiku $0.10 in · $0.50 out · per million tokens</span><span class="barcode"></span></div>
+      </div>
+      <div class="cost-why">
+        <div class="cap" style="margin:0">Why the reply gets more expensive every day</div>
+        <p>Claude rereads the <b>whole chat</b> with every reply. The chat grows by about 500 tokens per message and is only summarised at 700,000 tokens, about day 136 at 10 messages a day.</p>
+        <p>If the person answers within 5 minutes, the chat is read from cache, which is cheap. After a pause it is written again at full price: that "cold" reply is what costs.</p>
+        <div class="scroll-x">
+          <svg class="curve" viewBox="0 0 760 340" role="img" aria-label="Cost of one reply by day of chatting: cold replies rise from 6 cents to 1.76 dollars by day 136, warm replies stay under 8 cents">
+            <line class="gr" x1="60" y1="300" x2="720" y2="300"/><line class="gr" x1="60" y1="225" x2="720" y2="225"/><line class="gr" x1="60" y1="150" x2="720" y2="150"/><line class="gr" x1="60" y1="75" x2="720" y2="75"/>
+            <text class="ax" x="50" y="304" text-anchor="end">$0</text><text class="ax" x="50" y="229" text-anchor="end">$0.50</text><text class="ax" x="50" y="154" text-anchor="end">$1.00</text><text class="ax" x="50" y="79" text-anchor="end">$1.50</text>
+            <text class="ax" x="60" y="322" text-anchor="middle">day 0</text><text class="ax" x="201.4" y="322" text-anchor="middle">30</text><text class="ax" x="342.9" y="322" text-anchor="middle">60</text><text class="ax" x="484.3" y="322" text-anchor="middle">90</text><text class="ax" x="625.7" y="322" text-anchor="middle">120</text>
+            <line class="cmp" x1="701.1" y1="30" x2="701.1" y2="300"/>
+            <text class="ax" x="694" y="44" text-anchor="end">summarised at 700k tokens ≈ day 136</text>
+            <polyline class="l-cold" points="60,291.3 701.1,36.3"/>
+            <polyline class="l-mix" points="60,296 701.1,204.2"/>
+            <polyline class="l-warm" points="60,298.3 701.1,288.1"/>
+            <circle class="pt-cold" cx="201.4" cy="235" r="5"/><text class="lab c" x="190" y="226" text-anchor="end">cold $0.43</text>
+            <circle class="pt-mix" cx="201.4" cy="275.7" r="5"/><text class="lab b" x="190" y="268" text-anchor="end">average $0.16</text>
+            <text class="lab w" x="560" y="284">warm, under $0.08</text>
+          </svg>
         </div>
       </div>
     </div>
+
     <div class="fig">
-      <div class="cap">Per month at 1,000 active users · 10 messages a day · area to scale · from docs/costs.md</div>
-      <div class="tree" role="img" aria-label="Treemap of monthly cost">
-        <div class="big">
-          <div class="cell c-son"><span>Replies · Sonnet · at 400 output tokens</span><b>$4,800</b></div>
-          <div class="cell c-son2"><span>more if replies run 1,200 output tokens, as measured · total $7,200</span><b>+ $2,400</b></div>
-        </div>
-        <div class="small">
-          <div class="cell c-voice"><span>Voice</span><b>$885</b></div>
-          <div class="cell c-hai"><span>Haiku checks</span><b>$420</b></div>
-          <div class="cell c-opus"><b>Opus ≤ $150</b></div>
+      <div class="cap">Per active person per month · 10 messages a day · to scale</div>
+      <div class="mbars">
+        <div class="mb"><span class="nm">Cost doc today<small>Sonnet replies only, 400–1,200 out</small></span><div class="track2"><div class="f f-doc" style="width:3.84%"></div><div class="f f-doc2" style="left:3.84%;width:1.92%"></div></div><span class="amt">$4.80–7.20</span></div>
+        <div class="mb"><span class="nm">Month 1<small>this model, all six calls</small></span><div class="track2"><div class="f f-rep" style="width:22.6%"></div><div class="f f-oth" style="left:22.6%;width:9.9%"></div></div><span class="amt">$41</span></div>
+        <div class="mb"><span class="nm">Month 2</span><div class="track2"><div class="f f-rep" style="width:55.0%"></div><div class="f f-oth" style="left:55.0%;width:9.9%"></div></div><span class="amt">$81</span></div>
+        <div class="mb"><span class="nm">Month 3</span><div class="track2"><div class="f f-rep" style="width:87.4%"></div><div class="f f-oth" style="left:87.4%;width:9.9%"></div></div><span class="amt">$122</span></div>
+      </div>
+      <div class="skey" style="margin-top:12px"><span><i style="background:var(--blue)"></i>reply</span><span><i style="background:var(--mint)"></i>notebook update, reads, checks, voice ($12.40)</span><span><i style="background:var(--paper-3)"></i>cost doc estimate</span></div>
+      <p class="lede" style="font-size:1rem">At 1,000 people in their first month, that is about <b>$41,000 a month</b>. The team budget note in the cost doc (about $4 a day for about 100 messages) matches this model for young chats. Nobody has long chats yet.</p>
+    </div>
+
+    <div class="fig cost-b">
+      <div>
+        <div class="cap" style="margin:0 0 14px">Fixed every month, whatever the traffic</div>
+        <div class="fixed">
+          <div><span>Nightly lessons · Opus</span><b>≤ $150</b><small>capped at $5 a night</small></div>
+          <div><span>Picker learning · Opus</span><b>≤ $30</b><small>$1 a night, inside the $5</small></div>
+          <div><span>Notebook backfill · Sonnet</span><b>≤ $60</b><small>capped at $2 a day</small></div>
+          <div><span>iMessage line · Blooio</span><b>$289</b><small>list price per dedicated line · contract may differ</small></div>
+          <div><span>Hosting + database</span><b>≈ $30–100</b><small>Vercel Pro $20 + usage · Neon $11–21</small></div>
+          <div><span>WhatsApp · Meta</span><b>?</b><small>not in the cost doc · read the Meta invoice</small></div>
         </div>
       </div>
-      <div class="unk"><b>+ ? Notebook updates</b><span>A second Sonnet call on every eligible message. It is missing from the cost model, and so are iMessage line fees.</span></div>
+      <div>
+        <div class="cap" style="margin:0 0 14px">Three levers, biggest first</div>
+        <div class="levers">
+          <div><b>1 · Summarise chats sooner</b><span>Compaction at 70% of 1M tokens lets a prompt reach 700k. At ~100k the cold reply stays under $0.26.</span></div>
+          <div><b>2 · Keep the cache warm longer</b><span>Most of the cost is rewriting the chat after a 5-minute pause.</span></div>
+          <div><b>3 · Cheaper notebook update</b><span>The second Sonnet call per message could run on Haiku, or once a day.</span></div>
+        </div>
+      </div>
     </div>
+
+    <div class="fig realbox">
+      <b>The real number</b>
+      <span>Dassie records the cost of every model step. The owner dashboard's "Spend today" line and this read-only query give the actual bill:</span>
+      <code>scripts/db --prod --file scripts/sql/monthly-model-costs.sql</code>
+      <span>Assumptions above: a 20,000-token fixed prompt, about 500 tokens added per message, 800 output tokens per reply, 1 reply in 3 cold, a notebook update of ~11,000 in and ~1,500 out (unmeasured).</span>
+    </div>
+
     <div class="tech">
       <div class="tech-h"><span><b>Source ledger</b> · file 08</span><span>main@7c10b557</span></div>
-      <div class="tr"><span>Sonnet replies $4,800 at 400 output tokens; $7,200 at 1,200</span><code>docs/costs.md:85, :128</code></div>
-      <div class="tr"><span>Haiku $420 · voice $885</span><code>docs/costs.md:83, :86</code></div>
-      <div class="tr"><span>Notebook update: Sonnet, up to 16,000 output tokens, every eligible turn</span><code>agent/lib/person-model/extract.ts:16, :23</code></div>
-      <div class="tr"><span>Cost model assumes 6,000 input tokens; history alone can reach 24,000</span><code>docs/costs.md:128 · shared/environment/env.ts:186-191</code></div>
-      <div class="tr"><span>Caps: nightly $5 · router judging $1 · backfill $2/day · alert at $10/day</span><code>docs/costs.md:59-64</code></div>
+      <div class="tr"><span>List prices: Sonnet $2 / $10, cache read $0.10, cache write $2.50; Opus $4 / $20; Haiku $0.10 / $0.50 up to 100k tokens</span><code>db/services/person-models.ts:680-690 · agent/lib/learning/model.ts:26-41</code></div>
+      <div class="tr"><span>Chat history kept in the session until compaction at 70% of the context window</span><code>agent/agent.ts:133-135 · eve docs agent-config.md §Compaction</code></div>
+      <div class="tr"><span>Cache: a reply within 5 minutes rereads the conversation at the cached price</span><code>docs/costs.md:130</code></div>
+      <div class="tr"><span>Fixed prompt ≈ 20,000 tokens: instructions 31,035 characters (~7,800 tokens) + playbook ≤ 3,000 characters + memory core ~1,500 + picked pages ~2,500 + guide + up to 50 turn reads</span><code>agent/instructions/** · agent/lib/context-router/turn.ts:33 · agent/memory/conversation_reads.ts</code></div>
+      <div class="tr"><span>Checks + turn read: 4,800 in / 1,800 out per message; turn read measured at 3,670 / 822</span><code>docs/costs.md:131</code></div>
+      <div class="tr"><span>Notebook update: Sonnet, medium thinking, output cap 16,000; notebook capped at ~36,000 characters</span><code>agent/lib/person-model/extract.ts:16, :23, :96-105 · merge.ts:161-163</code></div>
+      <div class="tr"><span>Voice: transcription $0.0045/min, speech $0.05/active min → $0.0295 per voice turn</span><code>docs/costs.md:134</code></div>
+      <div class="tr"><span>Caps: nightly $5, picker judging $1, backfill $2/day, spend alert $10/day</span><code>shared/environment/env.ts:139-161 · docs/costs.md:59-64</code></div>
+      <div class="tr"><span>Budget note: about $4 a day for the conversation at ~100 messages a day</span><code>docs/costs.md:53-55</code></div>
     </div>
   </div>
 </section>
