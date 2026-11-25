@@ -432,6 +432,34 @@ svg { display: block; max-width: 100%; height: auto; }
 .realbox span { color: var(--muted); max-width: 75ch; }
 .realbox code { font: 600 .85rem var(--mono); background: var(--ink-3); padding: 10px 12px; border-radius: 8px; overflow-wrap: anywhere; color: var(--paper); }
 
+
+/* 05 what Dassie knows */
+.stack { display: grid; gap: 6px; max-width: 900px; }
+.layer { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; align-items: center; padding: 16px 20px; border-radius: 12px; background: #fff; box-shadow: 0 10px 24px -20px rgba(12,13,17,.5); }
+.layer .lk { font: 600 .62rem var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.layer b { font: 800 1.45rem/1 var(--display); text-transform: uppercase; display: block; }
+.layer span:not(.lk) { color: var(--muted); font-size: .95rem; }
+.layer.l1 { margin-inline: 0; } .layer.l2 { margin-inline: 14px; } .layer.l3 { margin-inline: 28px; } .layer.l4 { margin-inline: 42px; } .layer.l5 { margin-inline: 56px; }
+.layer.l4 { background: #e7efff; } .layer.l5 { background: #e7efff; }
+.layer.msg { margin-inline: 70px; background: var(--blue); color: #fff; } .layer.msg .lk { color: rgba(255,255,255,.75); }
+@media (max-width: 640px) { .layer { grid-template-columns: minmax(0, 1fr); gap: 4px; margin-inline: 0 !important; } }
+.two-k { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; }
+@media (max-width: 900px) { .two-k { grid-template-columns: minmax(0, 1fr); } }
+.funnel { display: grid; gap: 8px; }
+.fn { width: var(--w); min-width: 220px; max-width: 100%; background: var(--ink); color: var(--paper); border-radius: 10px; padding: 12px 16px; display: flex; gap: 14px; align-items: baseline; }
+.fn b { font: 900 2rem/1 var(--display); color: var(--blue); min-width: 60px; }
+.fn span { font-size: .9rem; color: rgba(236,230,218,.75); }
+.fn.hot { background: var(--coral); } .fn.hot b, .fn.hot span { color: var(--ink); }
+.note-k { margin-top: 14px; color: var(--muted); font-size: .95rem; max-width: 52ch; }
+.read-flow { display: grid; gap: 10px; }
+.rf { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; align-items: start; }
+.rf .n { width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font: 700 .78rem var(--mono); }
+.rf b { display: block; font-size: 1.05rem; }
+.rf span { color: var(--muted); font-size: .95rem; }
+.hints { display: grid; gap: 10px; margin-top: 18px; }
+.hints div { background: var(--ink); color: var(--paper); border-radius: 14px 14px 14px 4px; padding: 14px 16px; font-size: .95rem; line-height: 1.45; }
+.hints small { display: block; font: 600 .6rem var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--mint); margin-bottom: 6px; }
+
 /* 09 decisions */
 .ballots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
 @media (max-width: 760px) { .ballots { grid-template-columns: minmax(0, 1fr); } }
@@ -500,8 +528,8 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
     </div>
     <nav class="agenda" aria-label="Files">
       <a href="#f1"><b>01</b>First conversation</a><a href="#f2"><b>02</b>One message</a><a href="#f3"><b>03</b>The notebook</a>
-      <a href="#f4"><b>04</b>The picker</a><a href="#f5"><b>05</b>Consent</a><a href="#f6"><b>06</b>Night shift</a>
-      <a href="#f7"><b>07</b>What works</a><a href="#f8"><b>08</b>Cost</a>
+      <a href="#f4"><b>04</b>The picker</a><a href="#f45"><b>05</b>What Dassie knows</a><a href="#f5"><b>06</b>Consent</a>
+      <a href="#f6"><b>07</b>Night shift</a><a href="#f7"><b>08</b>What works</a><a href="#f8"><b>09</b>Cost</a>
     </nav>
   </div>
 </header>
@@ -792,10 +820,68 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
   </div>
 </section>
 
+<!-- ============ 05 KNOWS ============ -->
+<section class="band paper" id="f45">
+  <div class="wrap">
+    <div class="file"><span class="no">05</span><span>what_dassie_knows</span><span class="rule"></span><span class="who">4–8 min · the answer</span></div>
+    <h2 class="h">What goes into<br><span class="alt">every answer</span></h2>
+    <p class="lede">On top of the person's message, Claude gets five layers. Two are about the person, three are what we taught Dassie.</p>
+    <div class="fig stack" aria-label="The five layers on top of the message">
+      <div class="layer l1"><span class="lk">Always</span><div><b>Our rules</b><span>How to write, safety, what Dassie is. Written by the team. The length rule (50–120 characters) is not based on research.</span></div></div>
+      <div class="layer l2"><span class="lk">Every night</span><div><b>Lessons</b><span>Short rules learned from yesterday's chats: what helped, what didn't.</span></div></div>
+      <div class="layer l3"><span class="lk">Per message</span><div><b>1 topic guide</b><span>12 guides (focus, sleep, burnout, work…) with 51 research links. Only 1 of 12 has been checked, and by an AI.</span></div></div>
+      <div class="layer l4"><span class="lk">Per message</span><div><b>Their notebook pages</b><span>People, routines, goals, and how they like to be answered.</span></div></div>
+      <div class="layer l5"><span class="lk">Per person</span><div><b>A private hint</b><span>From reading their patterns (below). Never said out loud.</span></div></div>
+      <div class="layer msg"><span class="lk">Now</span><div><b>The message</b></div></div>
+    </div>
+
+    <div class="fig two-k">
+      <div>
+        <div class="cap" style="margin:0 0 16px">Research: lots collected, little in the answers</div>
+        <div class="funnel">
+          <div class="fn" style="--w:100%"><b>80</b><span>sources in the research brief · not in the answers</span></div>
+          <div class="fn" style="--w:78%"><b>≤ 24</b><span>new papers per weekly PubMed scan · titles only</span></div>
+          <div class="fn" style="--w:60%"><b>51</b><span>research links inside the 12 guides · reach Claude</span></div>
+          <div class="fn hot" style="--w:30%"><b>1</b><span>guide checked so far</span></div>
+        </div>
+        <p class="note-k">Nothing turns new research into guides on its own: a person writes each guide, an AI checks it against the papers.</p>
+      </div>
+      <div>
+        <div class="cap" style="margin:0 0 16px">Reading people: ADHD, autism, both, or unclear</div>
+        <div class="read-flow">
+          <div class="rf"><span class="n">1</span><div><b>They talk</b><span>"I can't start anything until 4pm." Or they say it: "I have ADHD."</span></div></div>
+          <div class="rf"><span class="n">2</span><div><b>Dassie takes notes</b><span>Up to 12 observations in their own words. Saying it counts as strong evidence.</span></div></div>
+          <div class="rf"><span class="n">3</span><div><b>A private estimate</b><span>ADHD · autism · both · unclear, with how sure it is. Stays careful below 30% sure.</span></div></div>
+          <div class="rf"><span class="n">4</span><div><b>Only a hint reaches Claude</b><span>Never a label or a number.</span></div></div>
+        </div>
+        <div class="hints">
+          <div><small>When ADHD fits</small>"favour task-initiation help (one tiny, concrete first step), externalised time (timers, reminders, exact times) and short chunks; offer to stay with them while they start."</div>
+          <div><small>When autism fits</small>"favour literal, predictable wording: say what happens next, ask one clear question at a time, avoid vague open questions; keep sensory and social load low and respect their routines."</div>
+        </div>
+        <p class="note-k">Not yet tested: whether the hint makes answers better.</p>
+      </div>
+    </div>
+    <div class="tech">
+      <div class="tech-h"><span><b>Source ledger</b> · file 05</span><span>main@7c10b557</span></div>
+      <div class="tr"><span>Rules always in the prompt; length rule 50–120 characters, 160 max, no source</span><code>agent/instructions/40-knowledge.ts:8-11 · content/message-style.md:4 · content/knowledge-core.md:13</code></div>
+      <div class="tr"><span>12 guides, each ending with a "Sources:" line (51 links); one preloaded per message, or loaded by Claude</span><code>agent/skills/*.md · agent/lib/context-router/cards.ts:111-123 · route.ts:54</code></div>
+      <div class="tr"><span>Only research-and-personal-fit passed review (GPT model); 11 are a legacy, unreviewed baseline; no human approval</span><code>knowledge/release.json:4, :74-90 · knowledge/README.md:39-43</code></div>
+      <div class="tr"><span>Weekly PubMed discovery: 4 searches, ≤ 6 papers each, titles and dates only</span><code>knowledge/discovery.ts:7-19 · knowledge/README.md:5-7</code></div>
+      <div class="tr"><span>Research brief with 80 source links; never imported into the prompt</span><code>docs/personal-context-research.md</code></div>
+      <div class="tr"><span>48 research-grounded eval cases (16 × EN/FR/NL); report only, not a release gate</span><code>evals/agent/companion-research.eval.ts · crisis-research.eval.ts · evals/README.md:113-116</code></div>
+      <div class="tr"><span>Estimate: Sonnet after every turn; ≤ 12 observations; confidence kept low; self-described diagnosis = strong evidence</span><code>agent/lib/person-model/extract.ts:36, :47, :51 · shared/person-model/schema.ts:86-95</code></div>
+      <div class="tr"><span>Hint texts and "never mention it" instruction; numbers never reach Claude</span><code>agent/lib/person-model/recall.ts:156-189</code></div>
+      <div class="tr"><span>Self-described diagnosis shown to Claude in their words (with health permission)</span><code>agent/lib/person-model/recall.ts:81-92 · documents.ts:225-236</code></div>
+      <div class="tr"><span>Tests check the estimate is never revealed; none checks that it helps</span><code>tests/agent/person-model.test.ts · evals/agent/person-model.eval.ts:241-266</code></div>
+      <div class="tr"><span>Each person's feedback on past replies is in the prompt</span><code>agent/memory/conversation_reads.ts:128-131</code></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ 05 CONSENT ============ -->
 <section class="band paper" id="f5">
   <div class="wrap">
-    <div class="file"><span class="no">05</span><span>consent</span><span class="rule"></span><span class="who">8–11 min · both</span></div>
+    <div class="file"><span class="no">06</span><span>consent</span><span class="rule"></span><span class="who">8–11 min · both</span></div>
     <h2 class="h">Memory for everyone.<br><span class="alt">Health with a yes.</span></h2>
     <p class="lede">Accepting the terms means Dassie remembers you. The health box only decides whether <b>health details</b>, like a diagnosis, are kept too. That is the rule, and what the privacy notice says.</p>
     <div class="fig scroll-x">
@@ -813,7 +899,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
     </div>
     <p class="lede" style="font-size:.98rem">Filled dot: what Dassie does by rule. "Today" notes show where the code still differs, with the issue that fixes it.</p>
     <div class="tech">
-      <div class="tech-h"><span><b>Source ledger</b> · file 05</span><span>main@7c10b557</span></div>
+      <div class="tech-h"><span><b>Source ledger</b> · file 06</span><span>main@7c10b557</span></div>
       <div class="tr"><span>Today: terms-only people get a one-shot chat with no memory. Fix filed: #459</span><code>db/services/beta-admission.ts:620-656 · agent/lib/lighter-chat.ts:20-28</code></div>
       <div class="tr"><span>A "memory without health" mode already exists but is unreachable</span><code>agent/lib/person-model/permission.ts:29 · agent/lib/consent.ts:53-57</code></div>
       <div class="tr"><span>The notice: "If you say no, Dassie still works, remembers what you share and can set reminders"</span><code>app/join/legal/copy.ts:148</code></div>
@@ -827,7 +913,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
 <!-- ============ 06 NIGHT ============ -->
 <section class="band" id="f6">
   <div class="wrap">
-    <div class="file"><span class="no">06</span><span>night_shift</span><span class="rule"></span><span class="who">8–11 min · shared learning</span></div>
+    <div class="file"><span class="no">07</span><span>night_shift</span><span class="rule"></span><span class="who">8–11 min · shared learning</span></div>
     <h2 class="h">While everyone<br><span class="alt">sleeps</span></h2>
     <p class="lede">Every night Dassie reads yesterday's chats and writes short lessons that <b>every</b> conversation sees the next day.</p>
     <div class="fig night">
@@ -848,7 +934,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
       </div>
     </div>
     <div class="tech">
-      <div class="tech-h"><span><b>Source ledger</b> · file 06</span><span>main@7c10b557</span></div>
+      <div class="tech-h"><span><b>Source ledger</b> · file 08</span><span>main@7c10b557</span></div>
       <div class="tr"><span>02:00 UTC daily; previous UTC day; ≤ $5 a night</span><code>agent/schedules/learning-loop.ts:9 · shared/environment/env.ts:156-161</code></div>
       <div class="tr"><span>Reads raw messages of everyone not opted out</span><code>db/services/learning.ts:63-77, :98-111, :397-440</code></div>
       <div class="tr"><span>At least 2 people per lesson, counted by code</span><code>agent/lib/learning/analyse.ts:186, :251-256</code></div>
@@ -862,7 +948,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
 <!-- ============ 07 WORKS ============ -->
 <section class="band paper" id="f7">
   <div class="wrap">
-    <div class="file"><span class="no">07</span><span>what_works</span><span class="rule"></span><span class="who">8–11 min · both</span></div>
+    <div class="file"><span class="no">08</span><span>what_works</span><span class="rule"></span><span class="who">8–11 min · both</span></div>
     <h2 class="h">Already<br><span class="alt">working</span></h2>
     <div class="fig ledger">
       <div class="lcol ok">
@@ -886,7 +972,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
 <!-- ============ 08 COSTS ============ -->
 <section class="band" id="f8">
   <div class="wrap">
-    <div class="file"><span class="no">08</span><span>cost</span><span class="rule"></span><span class="who">11–15 min · both</span></div>
+    <div class="file"><span class="no">09</span><span>cost</span><span class="rule"></span><span class="who">11–15 min · both</span></div>
     <h2 class="h">One message,<br><span class="alt">priced</span></h2>
     <p class="lede">Every number below comes from the list prices in the code and the token sizes the code sets or the docs measured. Where a number is an assumption, it says so. The real bill comes from the recorded spend (last box).</p>
 
@@ -970,7 +1056,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
     </div>
 
     <div class="tech">
-      <div class="tech-h"><span><b>Source ledger</b> · file 08</span><span>main@7c10b557</span></div>
+      <div class="tech-h"><span><b>Source ledger</b> · file 09</span><span>main@7c10b557</span></div>
       <div class="tr"><span>List prices: Sonnet $2 / $10, cache read $0.10, cache write $2.50; Opus $4 / $20; Haiku $0.10 / $0.50 up to 100k tokens</span><code>db/services/person-models.ts:680-690 · agent/lib/learning/model.ts:26-41</code></div>
       <div class="tr"><span>Chat history kept in the session until compaction at 70% of the context window</span><code>agent/agent.ts:133-135 · eve docs agent-config.md §Compaction</code></div>
       <div class="tr"><span>Cache: a reply within 5 minutes rereads the conversation at the cached price</span><code>docs/costs.md:130</code></div>
