@@ -367,6 +367,9 @@ svg { display: block; max-width: 100%; height: auto; }
 .verdict .kind.k-followup, .verdict .kind.k-self { color: var(--mint); }
 .verdict p { color: var(--muted); }
 #jev-bars .srow.sel .nm { color: var(--paper); }
+#jev-bars .srow .why { grid-column: 2 / 3; font: 500 .68rem var(--mono); letter-spacing: .04em; color: var(--muted); margin-top: -6px; }
+@media (max-width: 600px) { #jev-bars .srow .why { grid-column: 1 / -1; } }
+#jev-bars .bar .s { border-right-width: 2px; }
 #jev-bars .srow.empty .nm::after { content: " · empty"; font: 500 .6rem var(--mono); color: var(--muted); letter-spacing: .1em; }
 .gets { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .gets .lbl { font: 600 .66rem var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
@@ -425,18 +428,18 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
     <h1 class="h">Not a graph.<br><span class="alt">A notebook.</span></h1>
     <div class="hero-grid">
       <div>
-        <p class="lede" style="margin-top:0">What we call the <b>knowledge graph</b> is one private notebook per person, plus <b>Jev</b>, a picker that chooses which pages Claude reads for each message.</p>
+        <p class="lede" style="margin-top:0">What we call the <b>knowledge graph</b> is one private notebook per person, plus a picker that chooses which pages Claude reads for each message.</p>
         <div class="findings" style="margin-top:36px">
           <div class="finding"><span class="tagx t-fact">Fact</span><p>Facts are kept in a flat list. Nothing links one fact to another.</p></div>
-          <div class="finding"><span class="tagx t-risk">Risk</span><p>Our privacy notice promises memory to people who said no to health. The code gives them none.</p></div>
-          <div class="finding"><span class="tagx t-risk">Risk</span><p>Shared lessons change every night with no human yes.</p></div>
+          <div class="finding"><span class="tagx t-fact">Rule</span><p>Everyone who accepts the terms gets memory. The health box only covers health details.</p></div>
+          <div class="finding"><span class="tagx t-fact">Night</span><p>Every night Dassie learns short lessons from all chats and uses them the next day.</p></div>
           <div class="finding"><span class="tagx t-good">Works</span><p>Memory follows a person across iMessage and WhatsApp.</p></div>
         </div>
       </div>
-      <div class="thread" aria-label="Example: one message and the pages Jev picks">
+      <div class="thread" aria-label="Example: one message and the pages Dassie picks">
         <div class="top">iMessage · Noor (made-up person)</div>
         <div class="bub me">My friend Lea still isn't answering since the wedding</div>
-        <div class="note">Jev opens Noor's notebook at</div>
+        <div class="note">Dassie opens Noor's notebook at</div>
         <div class="fan"><span style="--r:-4deg">People</span><span style="--r:2deg">Situations</span><span style="--r:-2deg">Support</span><span class="g" style="--r:3deg">Friends guide</span></div>
         <div class="bub ai">That sounds painful, especially after Sam's wedding. Do you want help writing her a first line?</div>
         <div class="note">reply written by Claude with those pages · illustrative</div>
@@ -444,8 +447,8 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
     </div>
     <nav class="agenda" aria-label="Files">
       <a href="#f1"><b>01</b>First conversation</a><a href="#f2"><b>02</b>One message</a><a href="#f3"><b>03</b>The notebook</a>
-      <a href="#f4"><b>04</b>Jev</a><a href="#f5"><b>05</b>Consent</a><a href="#f6"><b>06</b>Night shift</a>
-      <a href="#f7"><b>07</b>Works / check</a><a href="#f8"><b>08</b>Cost</a><a href="#f9"><b>09</b>Decide</a>
+      <a href="#f4"><b>04</b>The picker</a><a href="#f5"><b>05</b>Consent</a><a href="#f6"><b>06</b>Night shift</a>
+      <a href="#f7"><b>07</b>What works</a><a href="#f8"><b>08</b>Cost</a>
     </nav>
   </div>
 </header>
@@ -458,7 +461,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
     <div class="fig">
       <div class="track">
         <div class="tk" data-n="1"><h3>Say Hi</h3><p>heydassie.com. WhatsApp, or iMessage on an Apple device.</p></div>
-        <div class="tk" data-n="2"><h3>Number + boxes</h3><p>Only the first box is required.</p></div>
+        <div class="tk" data-n="2"><h3>Number + boxes</h3><p>The only place we ask for consent. Only the first box is required.</p></div>
         <div class="tk" data-n="3"><h3>"Hey Dassie"</h3><p>Sent from your own number. That proves it's yours.</p></div>
         <div class="tk on" data-n="4"><h3>Fixed welcome</h3><p>Written by us. No AI.</p></div>
       </div>
@@ -467,10 +470,10 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
           <div class="ttl">Continue on iMessage</div>
           <div class="num"><span>🇳🇱 +31</span><b>6 12 34 56 78</b></div>
           <div class="ck req"><i></i><div><small>Required</small>I'm 18+ and agree to the Terms of Use</div></div>
-          <div class="ck"><i></i><div><small>Optional · turns on all memory</small>Dassie may use health information I share to help me</div></div>
+          <div class="ck"><i></i><div><small>Optional · health details only</small>Dassie may use health information I share to help me</div></div>
           <div class="ck"><i></i><div><small>Optional</small>Dassie may use my chat topics for research, without my name or number</div></div>
           <div class="send">Prepare my iMessage</div>
-          <div><span class="stamp">iMessage: confirm again in the chat · ALLOW HEALTH</span></div>
+          <div><span class="stamp" style="color:#1b8a5c;border-color:#1b8a5c">Consent is asked here, once</span></div>
         </div>
         <div class="phone" aria-label="The first iMessage exchange">
           <div class="top">Dassie</div>
@@ -479,8 +482,8 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
           <div class="bub ai">Hi 👋 I'm Dassie, your personal AI buddy to help you with everyday life challenges. I'm not a doctor or therapist</div>
           <div class="bub ai">Save me to your contacts 📇 If you ever want to stop, just text STOP.</div>
           <div class="card"><i></i>Dassie · contact card</div>
-          <div class="bub ai">Is there anything you'd like to tell me?<br><br>To let me use health information you share to help you, reply ALLOW HEALTH.</div>
-          <div class="bub me">ALLOW HEALTH</div>
+          <div class="bub ai">Is there anything you'd like to tell me?</div>
+          <div class="bub me">I keep putting off a text to my friend</div>
         </div>
       </div>
     </div>
@@ -491,8 +494,8 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
       <div class="tr"><span>18+ is self-declared: the form always sends confirmsAge: true</span><code>app/join/say-hi-request.ts:37</code></div>
       <div class="tr"><span>Least-busy number; new iMessage signups go to Blooio only</span><code>app/api/waitlist/handoff/route.ts:55-111 · db/services/dassie-numbers.ts:32-36</code></div>
       <div class="tr"><span>Fixed welcome in EN / FR / NL</span><code>agent/lib/website-welcome-copy.ts:4-63</code></div>
-      <div class="tr"><span>iMessage: a ticked box grants nothing until the ALLOW reply</span><code>db/services/beta-admission.ts:1557, :1569, :1755-1862</code></div>
-      <div class="tr"><span>The health box switches on all memory</span><code>agent/lib/consent.ts:52-66 · db/services/beta-admission.ts:595-599</code></div>
+      <div class="tr"><span>Today iMessage still asks again in the chat (ALLOW HEALTH / ALLOW RESEARCH). Removal filed: #460</span><code>db/services/beta-admission.ts:1557, :1569, :1755-1862 · agent/lib/website-welcome-copy.ts:31-43</code></div>
+      <div class="tr"><span>Today the health box also switches on all other memory. Fix filed: #459 (memory for everyone, health only with the box)</span><code>agent/lib/consent.ts:52-66 · db/services/beta-admission.ts:595-599</code></div>
     </div>
   </div>
 </section>
@@ -502,7 +505,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
   <div class="wrap">
     <div class="file"><span class="no">02</span><span>one_message</span><span class="rule"></span><span class="who">4–8 min · Guillaume</span></div>
     <h2 class="h">One message,<br><span class="alt">four lines</span></h2>
-    <p class="lede">Most messages ride the blue line. Safety words take the red express with fixed text. <b>Terms-only people take the grey line, which skips Jev and the notebook.</b></p>
+    <p class="lede">Most messages ride the blue line. Safety words take the red express with fixed text. The grey line is a bug: today people who only accept the terms skip the notebook. <b>Fix filed (#459): everyone rides the blue line.</b></p>
     <div class="fig">
       <div class="cap">Route map · how a message becomes a reply</div>
       <div class="scroll-x">
@@ -521,18 +524,18 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
           <circle class="st" cx="1000" cy="392" r="12" stroke="#35c98d"/>
           <text class="nm" x="90" y="254" text-anchor="middle">Arrives</text><text class="sb" x="90" y="274" text-anchor="middle">Blooio · Linq · Meta</text>
           <text class="nm" x="282" y="168" text-anchor="end">Checked</text><text class="sb" x="282" y="188" text-anchor="end">sender · access · STOP</text>
-          <text class="nm" x="540" y="254" text-anchor="middle">Jev picks pages</text><text class="sb" x="540" y="274" text-anchor="middle">notebook + 1 guide</text>
+          <text class="nm" x="540" y="254" text-anchor="middle">Dassie picks pages</text><text class="sb" x="540" y="274" text-anchor="middle">notebook + 1 guide</text>
           <text class="nm" x="780" y="168" text-anchor="middle">Claude replies</text><text class="sb" x="780" y="188" text-anchor="middle">Sonnet · Haiku if risky</text>
           <text class="nm" x="1024" y="254">Sent back</text><text class="sb" x="1024" y="274">same app</text>
           <text class="nm" x="640" y="62" text-anchor="middle" style="fill:#ff5b45">Fixed safety text</text><text class="sb" x="640" y="126" text-anchor="middle">STOP · emergency words · no AI</text>
-          <text class="nm" x="540" y="394" text-anchor="middle" style="fill:#b3b7c2">One-shot reply</text><text class="sb" x="540" y="414" text-anchor="middle">terms only · no notebook · no history</text>
-          <text class="nm" x="1000" y="436" text-anchor="middle" style="fill:#35c98d">Notebook updated</text><text class="sb" x="1000" y="456" text-anchor="middle">after the reply · health box only</text>
+          <text class="nm" x="540" y="394" text-anchor="middle" style="fill:#b3b7c2">One-shot reply</text><text class="sb" x="540" y="414" text-anchor="middle">terms only today · bug · fix #459</text>
+          <text class="nm" x="1000" y="436" text-anchor="middle" style="fill:#35c98d">Notebook updated</text><text class="sb" x="1000" y="456" text-anchor="middle">after the reply</text>
         </svg>
       </div>
       <div class="legend">
         <span><i style="background:#3d7dff"></i>Main line · memory on</span>
         <span><i style="background:#ff5b45"></i>Safety express</span>
-        <span><i style="background:#7d828f"></i>Terms only</span>
+        <span><i style="background:#7d828f"></i>Terms only today (bug, #459)</span>
         <span><i class="dash"></i>After the reply</span>
       </div>
     </div>
@@ -589,17 +592,17 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
     </div>
     <div class="besides">
       <div><b>Tasks</b><span>A separate list, not linked to the notebook</span></div>
-      <div><b>Messages</b><span>Every message, kept 12 months</span></div>
+      <div><b>Messages</b><span>Every message, kept while the account is open (#424)</span></div>
       <div><b>No vectors</b><span>A person's notes are never embedded</span></div>
     </div>
 
     <div class="fig">
       <div class="cap">What Claude reads about Noor for one reply · upper limits · 1 square = 250 tokens</div>
       <div class="waffle-wrap">
-        <div class="waffle" role="img" aria-label="112 squares: 6 always-on, 10 picked by Jev, 96 raw history" id="waffle"></div>
+        <div class="waffle" role="img" aria-label="112 squares: 6 always-on, 10 picked for this message, 96 raw history" id="waffle"></div>
         <div class="wkey">
           <div><i style="background:var(--mint)"></i><div><b>1,500</b><span>Always on: profile, how to answer, right now</span></div></div>
-          <div><i style="background:var(--blue)"></i><div><b>2,500</b><span>Picked by Jev for this message</span></div></div>
+          <div><i style="background:var(--blue)"></i><div><b>2,500</b><span>Picked for this message</span></div></div>
           <div><i style="background:var(--paper-3)"></i><div><b>24,000</b><span>Raw recent messages. Nobody picks these.</span></div></div>
         </div>
       </div>
@@ -620,9 +623,9 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
 <!-- ============ 04 JEV ============ -->
 <section class="band" id="f4">
   <div class="wrap">
-    <div class="file"><span class="no">04</span><span>jev · context_router</span><span class="rule"></span><span class="who">4–8 min · the picker</span></div>
-    <h2 class="h">Jev keeps<br><span class="alt">score</span></h2>
-    <p class="lede">For every message, Jev gives points to <b>8 notebook pages and 12 topic guides</b>. Anything with 1 point or more goes to Claude. It takes under a millisecond and makes no AI call of its own.</p>
+    <div class="file"><span class="no">04</span><span>the_picker · context_router</span><span class="rule"></span><span class="who">4–8 min · the picker</span></div>
+    <h2 class="h">Dassie keeps<br><span class="alt">score</span></h2>
+    <p class="lede">For every message, Dassie gives points to <b>8 notebook pages and 12 topic guides</b>. Anything with 1 point or more goes to Claude. It takes under a millisecond and makes no AI call of its own.</p>
 
     <div class="fig">
       <div class="cap">The sorting machine · checks run top to bottom, the first match decides</div>
@@ -639,7 +642,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
     </div>
 
     <div class="fig lab" id="try-jev">
-      <div class="cap" style="margin-bottom:22px">Try Jev · Dassie's real router code runs inside this page · on Noor's made-up notebook</div>
+      <div class="cap" style="margin-bottom:22px">Try it · Dassie's real picker code runs inside this page · on Noor's made-up notebook</div>
       <div class="lab-grid">
         <div class="lab-col">
           <label for="jev-in">Noor writes</label>
@@ -664,7 +667,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
             <span><b>routines</b> · Coffee and planning at 9 on weekdays</span>
             <span><b>goals</b> · Finish the thesis draft by January</span>
           </div>
-          <div class="ticket" aria-label="The route ticket Jev saves with the turn" style="margin-top:10px">
+          <div class="ticket" aria-label="The route ticket saved with the turn" style="margin-top:10px">
             <div class="tt"><span>Route ticket</span><span id="tk-head">v2 · routed</span></div>
             <hr>
             <div id="tk-rows"></div>
@@ -681,7 +684,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
       </div>
     </div>
     <div class="tech">
-      <div class="tech-h"><span><b>Source ledger</b> · file 04 · Jev</span><span>main@7c10b557</span></div>
+      <div class="tech-h"><span><b>Source ledger</b> · file 04 · the picker (engineers call it Jev)</span><span>main@7c10b557</span></div>
       <div class="tech-body">
         <div class="pts">
           <div><span>Keyword in the message</span><b>+1 each</b></div>
@@ -694,7 +697,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
           <div><span>High overwhelm / distress / load band</span><b>reaches the line</b></div>
         </div>
         <div class="jgrid">
-          <div><h4>Jev's output for the example (real)</h4>
+          <div><h4>The picker's output for the example (real)</h4>
 <pre class="json">{
   <span class="k">"version"</span>: <span class="n">2</span>,
   <span class="k">"kind"</span>: <span class="s">"routed"</span>,
@@ -731,7 +734,7 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
       <div class="tr"><span>Threshold 1 · budget 10,000 characters · 1 in 20 turns explores one extra page</span><code>context-router/config.ts:23 · turn.ts:33 · route.ts:45-56</code></div>
       <div class="tr"><span>Nightly: Opus judges ≤ 8 turns per person, blind to the route; gate needs recall ≥ 0.95 / 0.9</span><code>learning/router/judge.ts · proposals.ts:20-27 · context-router/evaluate.ts:24-29</code></div>
       <div class="tr"><span>Switches: CONTEXT_ROUTER semantic | lexical | off · CONTEXT_ROUTER_LEARNING on | off</span><code>shared/environment/env.ts:120-135</code></div>
-      <div class="tr"><span>Not a JEPA: no trained network, only rules and points</span><code>docs/personal-context.md:356-384</code></div>
+      <div class="tr"><span>"Jev" is our own context router, built in-house (#302, #308). Not a JEPA: no trained network, only rules and points</span><code>docs/personal-context.md:356-384</code></div>
     </div>
   </div>
 </section>
@@ -740,38 +743,30 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
 <section class="band paper" id="f5">
   <div class="wrap">
     <div class="file"><span class="no">05</span><span>consent</span><span class="rule"></span><span class="who">8–11 min · both</span></div>
-    <h2 class="h">One box<br><span class="risk">changes everything</span></h2>
-    <p class="lede">The health box is labelled "health", but in the code it turns on <b>all</b> memory. Without it, Dassie answers each message on its own.</p>
+    <h2 class="h">Memory for everyone.<br><span class="alt">Health with a yes.</span></h2>
+    <p class="lede">Accepting the terms means Dassie remembers you. The health box only decides whether <b>health details</b>, like a diagnosis, are kept too. That is the rule, and what the privacy notice says.</p>
     <div class="fig scroll-x">
       <table class="matrix">
         <thead><tr><th></th><th>Terms only<small>box 1</small></th><th>+ Health<small>box 2</small></th><th>+ Research<small>box 3</small></th></tr></thead>
         <tbody>
-          <tr><td>Dassie answers</td><td><i class="dot d-yes"></i><small>one message at a time</small></td><td><i class="dot d-yes"></i></td><td><i class="dot d-yes"></i></td></tr>
-          <tr><td>Remembers you</td><td><i class="dot d-no"></i></td><td><i class="dot d-yes"></i></td><td><i class="dot d-yes"></i></td></tr>
-          <tr><td>Reminders</td><td><i class="dot d-no"></i></td><td><i class="dot d-yes"></i></td><td><i class="dot d-yes"></i></td></tr>
-          <tr><td>Messages kept 12 months</td><td><i class="dot d-warn"></i></td><td><i class="dot d-warn"></i></td><td><i class="dot d-warn"></i></td></tr>
-          <tr><td>Read by the nightly lessons</td><td><i class="dot d-warn"></i><small>health words hidden</small></td><td><i class="dot d-warn"></i><small>as written</small></td><td><i class="dot d-warn"></i></td></tr>
-          <tr><td>Anonymous research counts</td><td><i class="dot d-no"></i></td><td><i class="dot d-no"></i></td><td><i class="dot d-yes"></i><small>only with health</small></td></tr>
+          <tr><td>Dassie answers, with the conversation</td><td><i class="dot d-yes"></i></td><td><i class="dot d-yes"></i></td><td><i class="dot d-yes"></i></td></tr>
+          <tr><td>Remembers you: people, routines, goals</td><td><i class="dot d-yes"></i><small>today: no · fix #459</small></td><td><i class="dot d-yes"></i></td><td><i class="dot d-yes"></i></td></tr>
+          <tr><td>Reminders</td><td><i class="dot d-yes"></i><small>today: no · fix #459</small></td><td><i class="dot d-yes"></i></td><td><i class="dot d-yes"></i></td></tr>
+          <tr><td>Remembers health details</td><td><i class="dot d-no"></i></td><td><i class="dot d-yes"></i></td><td><i class="dot d-yes"></i></td></tr>
+          <tr><td>Messages kept while the account is open</td><td><i class="dot d-yes"></i><small>today: 12 months · #424</small></td><td><i class="dot d-yes"></i><small>#424</small></td><td><i class="dot d-yes"></i><small>#424</small></td></tr>
+          <tr><td>Anonymous research counts</td><td><i class="dot d-no"></i></td><td><i class="dot d-no"></i></td><td><i class="dot d-yes"></i></td></tr>
         </tbody>
       </table>
     </div>
-    <div class="versus">
-      <div class="vs-a"><span class="k">The privacy notice · heydassie.com</span><blockquote>"If you say no, Dassie still works, remembers what you share and can set reminders."</blockquote></div>
-      <div class="vs-b"><span class="k">The code · lighter-chat.ts</span>
-<pre><span class="cm">// what Claude is told for terms-only people</span>
-<span class="str">"No earlier conversation, memory or profile
-is available. Never suggest you remember the
-person, save anything or set reminders."</span></pre></div>
-      <span class="stamp big">Does not match</span>
-    </div>
+    <p class="lede" style="font-size:.98rem">Filled dot: what Dassie does by rule. "Today" notes show where the code still differs, with the issue that fixes it.</p>
     <div class="tech">
       <div class="tech-h"><span><b>Source ledger</b> · file 05</span><span>main@7c10b557</span></div>
-      <div class="tr"><span>Terms only = "lighter" admission → one-shot chat</span><code>db/services/beta-admission.ts:620-656 · agent/lib/lighter-chat.ts:20-28</code></div>
-      <div class="tr"><span>Every memory store checks isPersonalizationRestricted</span><code>agent/lib/consent.ts:52-66 · profile-memory.ts:48-58 · memory/person_model.ts:64-72</code></div>
-      <div class="tr"><span>The notice's promise · the bot's brief repeats it</span><code>app/join/legal/copy.ts:148 · agent/lib/beta-admission.ts:167, :177</code></div>
-      <div class="tr"><span>Messages kept 12 months, for everyone</span><code>db/schema/conversation-messages.ts:15-19</code></div>
-      <div class="tr"><span>Nightly lessons: only gate is the improvement opt-out; health words hidden without permission</span><code>db/services/learning.ts:63-77, :98-111 · agent/lib/learning/redact.ts:3-23</code></div>
-      <div class="tr"><span>Research needs the research yes and the health notice</span><code>db/services/research.ts:101-125 · db/services/beta-admission.ts:1566-1573</code></div>
+      <div class="tr"><span>Today: terms-only people get a one-shot chat with no memory. Fix filed: #459</span><code>db/services/beta-admission.ts:620-656 · agent/lib/lighter-chat.ts:20-28</code></div>
+      <div class="tr"><span>A "memory without health" mode already exists but is unreachable</span><code>agent/lib/person-model/permission.ts:29 · agent/lib/consent.ts:53-57</code></div>
+      <div class="tr"><span>The notice: "If you say no, Dassie still works, remembers what you share and can set reminders"</span><code>app/join/legal/copy.ts:148</code></div>
+      <div class="tr"><span>Today messages are deleted 12 months after sending; accounts close after 12 months of silence. Keep while open: #424</span><code>db/services/conversation-messages.ts:10-11, :145-152 · db/services/account-erasure.ts:63-65</code></div>
+      <div class="tr"><span>After STOP, data is purged within 30 days (right to erasure, GDPR art. 17)</span><code>db/services/account-erasure.ts:59 · agent/lib/account-erasure.ts:95</code></div>
+      <div class="tr"><span>Research needs the research yes and the health notice</span><code>db/services/research.ts:101-125</code></div>
     </div>
   </div>
 </section>
@@ -793,7 +788,7 @@ person, save anything or set reminders."</span></pre></div>
         <text class="ctr2" x="210" y="160" text-anchor="middle" style="fill:#3d7dff">YESTERDAY · ALL DAY</text>
       </svg>
       <div class="steps">
-        <div class="stp"><span class="t">01</span><div><h3>Reads yesterday</h3><p>Everyone who wrote, unless they opted out. Terms-only people included.</p></div></div>
+        <div class="stp"><span class="t">01</span><div><h3>Reads yesterday</h3><p>Everyone who wrote that day, unless they opted out.</p></div></div>
         <div class="stp"><span class="t">02</span><div><h3>Opus writes lessons</h3><p>Short, general rules. Each one must come from at least two people.</p></div></div>
         <div class="stp"><span class="t">03</span><div><h3>Machines check</h3><p>Personal-data scan, AI judges, a replay and the crisis cases.</p></div></div>
         <div class="stp live"><span class="t">04</span><div><h3>Live · no human</h3><p>If the checks pass, the lessons go live for everyone. Undoing it takes a setting change and a database write.</p></div></div>
@@ -811,35 +806,26 @@ person, save anything or set reminders."</span></pre></div>
   </div>
 </section>
 
-<!-- ============ 07 WORKS / CHECK ============ -->
+<!-- ============ 07 WORKS ============ -->
 <section class="band paper" id="f7">
   <div class="wrap">
-    <div class="file"><span class="no">07</span><span>works / must_check</span><span class="rule"></span><span class="who">8–11 min · both</span></div>
-    <h2 class="h">Proven,<br><span class="risk">and not yet</span></h2>
+    <div class="file"><span class="no">07</span><span>what_works</span><span class="rule"></span><span class="who">8–11 min · both</span></div>
+    <h2 class="h">Already<br><span class="alt">working</span></h2>
     <div class="fig ledger">
       <div class="lcol ok">
-        <h3>Works</h3>
         <div class="li"><span class="g">✓</span><div><b>Memory across apps</b><span>A test detail said on iMessage came back on WhatsApp, and the other way round.</span></div></div>
         <div class="li"><span class="g">✓</span><div><b>Safety comes first</b><span>STOP and emergency text work without the AI.</span></div></div>
-        <div class="li"><span class="g">✓</span><div><b>Only real senders get in</b><span>Every message is signature-checked.</span></div></div>
-        <div class="li"><span class="g">✓</span><div><b>Jev is fast</b><span>Under 1 ms per message.</span></div></div>
       </div>
-      <div class="lcol bad">
-        <h3>Must check</h3>
-        <div class="li"><span class="g">!</span><div><b>Notice vs code</b><span>Terms-only people are promised memory they don't get.</span></div></div>
-        <div class="li"><span class="g">!</span><div><b>Lessons with no human yes</b><span>One approval per version during the beta.</span></div></div>
-        <div class="li"><span class="g">!</span><div><b>Does memory help?</b><span>Not proven. The test cases are made up, by one author.</span></div></div>
-        <div class="li"><span class="g">!</span><div><b>Health data in plain text</b><span>Including the ADHD / autism estimate.</span></div></div>
-        <div class="li"><span class="g">!</span><div><b>Fresh-phone signup</b><span>Only tested on a Mac so far.</span></div></div>
+      <div class="lcol ok">
+        <div class="li"><span class="g">✓</span><div><b>Only real senders get in</b><span>Every message is signature-checked.</span></div></div>
+        <div class="li"><span class="g">✓</span><div><b>The picker is fast</b><span>Under 1 ms per message.</span></div></div>
       </div>
     </div>
     <div class="tech">
       <div class="tech-h"><span><b>Source ledger</b> · file 07</span><span>main@7c10b557</span></div>
       <div class="tr"><span>Cross-app recall test, 23 and 24 Nov</span><code>github.com/TeamFD99/dassie/issues/298</code></div>
-      <div class="tr"><span>Router: recall 0.975 / precision 0.831 on 37 held-out cases; embedding adds nothing there</span><code>docs/personal-context.md:636-643</code></div>
-      <div class="tr"><span>"The same author wrote the cues and the labels" · live reply quality not measured</span><code>docs/personal-context.md:652-656, :614-619</code></div>
-      <div class="tr"><span>Topic guides "legacy-unreviewed"; 1 of 12 had an automated review</span><code>knowledge/release.json:4, :74-90</code></div>
-      <div class="tr"><span>Health facts and estimate stored as plain jsonb</span><code>db/schema/person-models.ts:31 · shared/person-model/schema.ts:86-95</code></div>
+      <div class="tr"><span>Webhook signatures</span><code>agent/channels/linq.ts:155 · blooio.ts:172 · whatsapp.ts:197</code></div>
+      <div class="tr"><span>Picker latency p50 0.58 ms, p95 0.72 ms</span><code>docs/personal-context.md:614-615</code></div>
     </div>
   </div>
 </section>
@@ -860,7 +846,7 @@ person, save anything or set reminders."</span></pre></div>
           <span class="call big"><i style="background:var(--blue)"></i>Reply <span class="n">Sonnet</span></span>
           <span class="phn">the only call the person waits for</span>
         </div>
-        <div class="ph"><span class="phk">After the reply · health box only</span>
+        <div class="ph"><span class="phk">After the reply · nobody waits</span>
           <span class="call"><i style="background:var(--mint)"></i>Turn read <span class="n">Haiku</span></span>
           <span class="call"><i style="background:var(--blue)"></i>Notebook update <span class="n">Sonnet</span></span>
         </div>
@@ -892,21 +878,7 @@ person, save anything or set reminders."</span></pre></div>
   </div>
 </section>
 
-<!-- ============ 09 DECISIONS ============ -->
-<section class="band paper" id="f9">
-  <div class="wrap">
-    <div class="file"><span class="no">09</span><span>decide_today</span><span class="rule"></span><span class="who">11–15 min</span></div>
-    <h2 class="h">Four votes<br><span class="alt">before 18:15</span></h2>
-    <div class="fig ballots">
-      <div class="ballot"><div class="n"><span>Ballot 1</span><span>Hadassah + Guillaume</span></div><h3>Terms-only people: give them memory, or fix the notice?</h3><div class="opts"><span><i></i>Memory</span><span><i></i>Fix notice</span></div></div>
-      <div class="ballot"><div class="n"><span>Ballot 2</span><span>Guillaume</span></div><h3>One human yes before new lessons go live?</h3><div class="opts"><span><i></i>Yes</span><span><i></i>No</span></div></div>
-      <div class="ballot"><div class="n"><span>Ballot 3</span><span>Gib + Guillaume</span></div><h3>Test replies with and without memory before the 1,000 push?</h3><div class="opts"><span><i></i>Yes</span><span><i></i>Later</span></div></div>
-      <div class="ballot"><div class="n"><span>Ballot 4</span><span>Kaan + Hadassah</span></div><h3>Say "personal memory" in public until it's a real graph?</h3><div class="opts"><span><i></i>Yes</span><span><i></i>No</span></div></div>
-    </div>
-  </div>
-</section>
-
-<footer><div class="wrap">Code read of TeamFD99/dassie main@7c10b557 · 25 Nov 2026 · no user data read · Jev example run through the real router on a made-up person</div></footer>
+<footer><div class="wrap">Code read of TeamFD99/dassie main@7c10b557 · 25 Nov 2026 · no user data read · picker example run through the real code on a made-up person</div></footer>
 
 <script>
 (function () {
@@ -951,9 +923,9 @@ het een van voor met dat die wat wie waar wanneer maar ook nog niet wel heel vee
   if (!window.Jev) return;
   var names = { people: "People", situations: "Situations", support: "Support", routines: "Routines", helps: "What helps", goals: "Goals", episodes: "Episodes", earlier: "Earlier" };
   var why = {
-    routed: "Jev is sure. Claude gets the pages over the line, plus at most one guide.",
-    followup: "A short follow-up. Jev keeps last turn's pages so the context doesn't flap.",
-    fallback: "A real message, but nothing reached the line. Jev is unsure, so Claude gets every page.",
+    routed: "Dassie is sure. Claude gets the pages over the line, plus at most one guide.",
+    followup: "A short follow-up. Dassie keeps last turn's pages so the context doesn't flap.",
+    fallback: "A real message, but nothing reached the line. Dassie is unsure, so Claude gets every page.",
     none: "Small talk. Claude gets only the always-on core: profile, how to answer, right now.",
     self: "Noor asks about her own notes. Claude gets every page, with fact IDs.",
     crisis: "Safety first. Her support network and what helps her. Never a guide.",
@@ -984,7 +956,7 @@ het een van voor met dat die wat wie waar wanneer maar ook nog niet wel heel vee
     var out = [];
     (reasons || []).forEach(function (r) {
       if (r === "cue") out.push(["s-cue", hits(text, id, cues), "keyword"]);
-      else if (r === "cue:previous") out.push(["s-prev", Math.min(0.5, hits(state.previous, id, cues) / 2), "earlier msg"]);
+      else if (r === "cue:previous") out.push(["s-prev", Math.min(0.5, hits(state.previous, id, cues) / 2), "previous message"]);
       else if (r.indexOf("name:") === 0) out.push(["s-name", 1.5, r.slice(5)]);
       else if (r.indexOf("term:") === 0) out.push(["s-rare", 0.6, r.slice(5)]);
       else if (r.indexOf("card:") === 0) out.push(["s-guide", 1, "guide"]);
@@ -997,8 +969,9 @@ het een van voor met dat die wat wie waar wanneer maar ook nog niet wel heel vee
   }
   function row(label, segs, scale, selected, empty) {
     var total = segs.reduce(function (a, s) { return a + s[1]; }, 0);
-    var bar = segs.map(function (s) { var w = (s[1] / scale) * 100; return '<span class="s ' + s[0] + '" style="width:' + w + '%">' + (w > 7 ? s[2] : "") + "</span>"; }).join("");
-    return '<div class="srow' + (selected ? " sel" : " out") + (empty ? " empty" : "") + '"><span class="nm">' + label + '</span><div class="bar">' + bar + '<i class="thr" style="left:' + (100 / scale) + '%"></i></div><span class="v">' + (Math.round(total * 10) / 10).toFixed(1) + "</span></div>";
+    var bar = segs.map(function (s) { var w = (s[1] / scale) * 100; return '<span class="s ' + s[0] + '" style="width:' + w + '%" title="' + s[2] + " +" + s[1] + '"></span>'; }).join("");
+    var why = segs.map(function (s) { return s[2] + " +" + (Math.round(s[1] * 10) / 10); }).join(" · ");
+    return '<div class="srow' + (selected ? " sel" : " out") + (empty ? " empty" : "") + '"><span class="nm">' + label + '</span><div class="bar">' + bar + '<i class="thr" style="left:' + (100 / scale) + '%"></i></div><span class="v">' + (Math.round(total * 10) / 10).toFixed(1) + "</span>" + (why ? '<span class="why">' + why + "</span>" : "") + "</div>";
   }
   function render() {
     var text = input.value;
