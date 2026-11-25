@@ -472,6 +472,17 @@ svg { display: block; max-width: 100%; height: auto; }
 .tbar2 div { display: flex; align-items: center; padding-inline: 14px; font: 700 .85rem var(--mono); white-space: nowrap; overflow: hidden; }
 .b-rep { background: var(--blue); color: #fff; } .b-voi { background: var(--amber); color: var(--ink); } .b-chk { background: var(--mint); } .b-nb { background: var(--violet); }
 
+
+/* side rail */
+.rail { position: fixed; z-index: 25; right: max(14px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 2px; padding: 6px; background: rgba(12,13,17,.92); border: 1px solid rgba(236,230,218,.18); border-radius: 18px; }
+.rail a { position: relative; display: flex; align-items: center; justify-content: center; width: 34px; height: 30px; border-radius: 10px; text-decoration: none; color: rgba(236,230,218,.55); font: 600 .7rem var(--mono); }
+.rail a:hover, .rail a:focus-visible { color: var(--paper); background: rgba(236,230,218,.08); }
+.rail a.on { color: #fff; background: var(--blue); }
+.rail .t { position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%) translateX(6px); white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity .15s, transform .15s; background: var(--paper); color: var(--ink); font: 600 .7rem var(--mono); letter-spacing: .1em; text-transform: uppercase; padding: 6px 10px; border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,.3); }
+.rail a:hover .t, .rail a:focus-visible .t { opacity: 1; transform: translateY(-50%); }
+@media (max-width: 1400px) { .rail { display: none; } }
+@media (prefers-reduced-motion: reduce) { .rail .t { transition: none; } }
+
 /* 09 decisions */
 .ballots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
 @media (max-width: 760px) { .ballots { grid-template-columns: minmax(0, 1fr); } }
@@ -514,6 +525,18 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
   <button type="button" id="v-tech" aria-pressed="false">Technical</button>
 </div>
 
+<nav class="rail" aria-label="Sections">
+  <a href="#f1"><span class="n">01</span><span class="t">First conversation</span></a>
+  <a href="#f2"><span class="n">02</span><span class="t">One message</span></a>
+  <a href="#f3"><span class="n">03</span><span class="t">The notebook</span></a>
+  <a href="#f4"><span class="n">04</span><span class="t">The picker</span></a>
+  <a href="#f45"><span class="n">05</span><span class="t">What Dassie knows</span></a>
+  <a href="#f5"><span class="n">06</span><span class="t">Consent</span></a>
+  <a href="#f6"><span class="n">07</span><span class="t">Night shift</span></a>
+  <a href="#f7"><span class="n">08</span><span class="t">What works</span></a>
+  <a href="#f8"><span class="n">09</span><span class="t">Cost</span></a>
+</nav>
+
 <!-- ============ HERO ============ -->
 <header class="hero">
   <div class="wrap">
@@ -538,11 +561,6 @@ footer { padding-block: 48px; font: 500 .7rem var(--mono); letter-spacing: .1em;
         <div class="note">reply written by Claude with those pages · illustrative</div>
       </div>
     </div>
-    <nav class="agenda" aria-label="Files">
-      <a href="#f1"><b>01</b>First conversation</a><a href="#f2"><b>02</b>One message</a><a href="#f3"><b>03</b>The notebook</a>
-      <a href="#f4"><b>04</b>The picker</a><a href="#f45"><b>05</b>What Dassie knows</a><a href="#f5"><b>06</b>Consent</a>
-      <a href="#f6"><b>07</b>Night shift</a><a href="#f7"><b>08</b>What works</a><a href="#f8"><b>09</b>Cost</a>
-    </nav>
   </div>
 </header>
 
@@ -1195,6 +1213,22 @@ het een van voor met dat die wat wie waar wanneer maar ook nog niet wel heel vee
   });
   input.addEventListener("keydown", function (e) { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("jev-send").click(); } });
   render();
+})();
+</script>
+
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll(".rail a"));
+  if (!("IntersectionObserver" in window) || !links.length) return;
+  var byId = {}; links.forEach(function (a) { byId[a.getAttribute("href").slice(1)] = a; });
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      links.forEach(function (a) { a.classList.remove("on"); });
+      var a = byId[e.target.id]; if (a) a.classList.add("on");
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  Object.keys(byId).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
 })();
 </script>
 </body>
